@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block extra%}
+<link rel='stylesheet' type='text/css' href="{% static 'css/top.css' %}" />
+<link rel='stylesheet' type='text/css' href="{% static 'css/navbar.css' %}" />
+<link rel='stylesheet' type='text/css' href="{% static 'css/pagination.css' %}" />
+{% endblock %}
+
+{% block header %}
+<header>
+    {% include 'top.html' %}
+    {% include 'navbar.html' %}
+</header>
+{% endblock %}
+{% block main %}
+<p class='news-name'>News Items</p>
+<ul style='list-style-type: none'>
+    {% for i in page_obj %}
+    <li class='each-heading'>
+        {% include 'body.html' %}
+    </li>
+    {% endfor %}
+    {% include 'pagination.html' %}
+</ul>
+{% endblock %}
